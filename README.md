@@ -30,11 +30,3 @@ FlashLearn is a modern flashcard application built with Next.js that helps users
 - Node.js 18+
 - pnpm
 
-
-
-flashcard-app/
-├── app/               # Next.js app router
-├── components/        # React components
-├── lib/               # Utility functions
-├── public/            # Static assets
-└── styles/            # Global styles
