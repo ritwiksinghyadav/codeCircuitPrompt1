@@ -6,6 +6,7 @@ import { BookOpen, Home, BarChart3, Settings } from "lucide-react"
 
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/theme-toggle"
 
 export function AppHeader() {
   const pathname = usePathname()
@@ -42,7 +43,7 @@ export function AppHeader() {
               </Button>
             ))}
           </div>
-
+          <ThemeToggle />
         </nav>
       </div>
     </header>
