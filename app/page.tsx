@@ -1,102 +1,66 @@
 import Link from "next/link"
-import { BookOpen, Plus, BarChart3 } from "lucide-react"
-
 import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
-import { Progress } from "@/components/ui/progress"
+import { BookOpen, Zap, BarChart3 } from "lucide-react"
 
-export default function Home() {
-  // Sample deck data - in a real app, this would come from a database
-  const decks = [
-    {
-      id: "1",
-      title: "JavaScript Fundamentals",
-      description: "Core concepts of JavaScript programming",
-      totalCards: 42,
-      dueCards: 7,
-      mastery: 68,
-    },
-    {
-      id: "2",
-      title: "React Hooks",
-      description: "Understanding React hooks and their usage",
-      totalCards: 24,
-      dueCards: 12,
-      mastery: 45,
-    },
-    {
-      id: "3",
-      title: "CSS Grid & Flexbox",
-      description: "Modern CSS layout techniques",
-      totalCards: 18,
-      dueCards: 3,
-      mastery: 82,
-    },
-  ]
-
+export default function HomePage() {
   return (
-    <div className="container mx-auto py-6 px-4 md:px-6">
-      <div className="flex flex-col md:flex-row items-start md:items-center justify-between mb-8 gap-4">
-        <div>
-          <h1 className="text-3xl font-bold tracking-tight">Flashcards</h1>
-          <p className="text-muted-foreground mt-1">Manage your decks and track your learning progress</p>
-        </div>
-        <div className="flex gap-2">
-          <Button asChild>
-            <Link href="/stats">
-              <BarChart3 className="mr-2 h-4 w-4" />
-              Statistics
-            </Link>
-          </Button>
-          <Button asChild>
-            <Link href="/decks/new">
-              <Plus className="mr-2 h-4 w-4" />
-              New Deck
-            </Link>
-          </Button>
-        </div>
-      </div>
+    <div className="flex flex-col items-center justify-center min-h-[calc(100vh-theme(spacing.16))] bg-white dark:bg-[#020817]">
+      <main className="flex-1 w-full max-w-4xl px-4 py-8 md:px-6 md:py-12">
+        {/* Hero Section */}
+        <section className="text-center py-12 md:py-16">
+          <BookOpen className="mx-auto h-16 w-16 text-[#1877f2] dark:text-[#4599ff] mb-4" />
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4 dark:text-white">
+            Master Anything with FlashLearn
+          </h1>
+          <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
+            The smart, simple, and effective way to study with flashcards. Boost your learning and retention with our spaced repetition system.
+          </p>
+          <div className="flex justify-center gap-4">
+            <Button asChild size="lg" className="bg-[#1877f2] hover:bg-[#166fe0] text-white dark:bg-[#4599ff] dark:hover:bg-[#1877f2]">
+              <Link href="/decks/new">Create New Deck</Link>
+            </Button>
+            <Button asChild size="lg" variant="outline" className="border-[#1877f2] text-[#1877f2] hover:bg-blue-50 dark:border-[#4599ff] dark:text-[#4599ff] dark:hover:bg-[#16213a]">
+              <Link href="/decks">Browse Decks</Link>
+            </Button>
+          </div>
+        </section>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {decks.map((deck) => (
-          <Card key={deck.id} className="flex flex-col">
-            <CardHeader>
-              <CardTitle>{deck.title}</CardTitle>
-              <CardDescription>{deck.description}</CardDescription>
-            </CardHeader>
-            <CardContent className="flex-1">
-              <div className="space-y-4">
-                <div className="flex justify-between text-sm">
-                  <span>Mastery</span>
-                  <span className="font-medium">{deck.mastery}%</span>
-                </div>
-                <Progress value={deck.mastery} className="h-2" />
-                <div className="grid grid-cols-2 gap-4 pt-2">
-                  <div className="flex flex-col">
-                    <span className="text-xs text-muted-foreground">Total Cards</span>
-                    <span className="font-medium">{deck.totalCards}</span>
-                  </div>
-                  <div className="flex flex-col">
-                    <span className="text-xs text-muted-foreground">Due Today</span>
-                    <span className="font-medium text-orange-500">{deck.dueCards}</span>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-            <CardFooter className="flex justify-between border-t pt-4">
-              <Button variant="outline" asChild>
-                <Link href={`/decks/${deck.id}`}>Manage</Link>
-              </Button>
-              <Button asChild>
-                <Link href={`/review/${deck.id}`}>
-                  <BookOpen className="mr-2 h-4 w-4" />
-                  Review
-                </Link>
-              </Button>
-            </CardFooter>
-          </Card>
-        ))}
-      </div>
+        {/* Features Section */}
+        <section className="py-12 md:py-16 grid md:grid-cols-3 gap-8">
+          <div className="flex flex-col items-center text-center p-6 bg-white dark:bg-[#16213a] rounded-lg shadow-sm border border-gray-200 dark:border-[#22304a]">
+            <Zap className="h-10 w-10 text-[#42b72a] mb-3" />
+            <h3 className="text-xl font-semibold mb-2 dark:text-white">Efficient Learning</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">
+              Utilize our spaced repetition algorithm to study smarter, not harder.
+            </p>
+          </div>
+          <div className="flex flex-col items-center text-center p-6 bg-white dark:bg-[#16213a] rounded-lg shadow-sm border border-gray-200 dark:border-[#22304a]">
+            <BookOpen className="h-10 w-10 text-[#a259ff] mb-3" />
+            <h3 className="text-xl font-semibold mb-2 dark:text-white">Organize Your Decks</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">
+              Easily create, manage, and categorize your flashcard decks.
+            </p>
+          </div>
+          <div className="flex flex-col items-center text-center p-6 bg-white dark:bg-[#16213a] rounded-lg shadow-sm border border-gray-200 dark:border-[#22304a]">
+            <BarChart3 className="h-10 w-10 text-[#f7b928] mb-3" />
+            <h3 className="text-xl font-semibold mb-2 dark:text-white">Track Your Progress</h3>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">
+              Monitor your learning statistics and see how far you've come.
+            </p>
+          </div>
+        </section>
+
+        {/* Call to Action */}
+        <section className="text-center py-12 md:py-16 bg-[#e7f3ff] dark:bg-[#16213a] rounded-lg">
+          <h2 className="text-3xl font-bold mb-4 dark:text-white">Ready to Start Learning?</h2>
+          <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-xl mx-auto">
+            Join FlashLearn today and take the first step towards mastering new subjects.
+          </p>
+          <Button asChild size="lg" className="bg-[#1877f2] hover:bg-[#166fe0] text-white dark:bg-[#4599ff] dark:hover:bg-[#1877f2]">
+            <Link href="/decks">Get Started Now</Link>
+          </Button>
+        </section>
+      </main>
     </div>
   )
 }
