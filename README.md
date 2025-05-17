@@ -1,6 +1,6 @@
 # FlashLearn - Smart Flashcard App
 
-![FlashLearn Logo](public/placeholder-logo.png)
+Check it on - https://code-circuit-prompt1.vercel.app/
 
 > **Note**: This project was completed in 34 minutes using [v0.dev](https://v0.dev), [Trae](https://trae.ai) as the code editor, [Claude](https://claude.ai), [GPT-4.1](https://openai.com), and [Cline](https://cline.ai), following vibe coding methods.
 
