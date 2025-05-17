@@ -24,14 +24,13 @@ FlashLearn is a modern flashcard application built with Next.js that helps users
 - Shadcn/ui components
 - Lucide React icons
 
-## Getting Started
 
 ### Prerequisites
 
 - Node.js 18+
 - pnpm
 
-## Technologies
+
 
 flashcard-app/
 ├── app/               # Next.js app router
